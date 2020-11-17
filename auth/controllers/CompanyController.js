@@ -19,8 +19,12 @@ exports.findById = (req, res) => {
 
 exports.addCompany = (req, res) => {
     Company.create(req.body, (err, data) => {
-        if (err) { throw err; }
-        res.send(data);
+        if (err) { 
+            return res.status(422).json({"error":"Oops! Something went wrong"});
+        }
+        else {
+            res.send(data);
+        }
     })
 };
 

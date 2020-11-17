@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../service/company.service';
 import { Company } from '../models/company';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-companies-list',
@@ -11,7 +12,7 @@ export class CompaniesListComponent implements OnInit {
 
   companies: Company[];
 
-  constructor(public companyService: CompanyService) { }
+  constructor(public companyService: CompanyService, private router: Router) { }
 
   ngOnInit(): void {
     this.companyService.getCompanies().subscribe(data=> {
@@ -19,5 +20,4 @@ export class CompaniesListComponent implements OnInit {
       console.log(this.companies); 
     });
   }
-
 }

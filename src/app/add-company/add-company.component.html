@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+    <div class="col-md-5">
+        <h1 class="page-title">Company Form</h1>
+        <form #companyForm="ngForm">
+
+            <div *ngIf="errors.length > 0" class="alert alert-danger">
+                <ul *ngFor = "let error of errors">
+                    <li>{{ error }}</li>
+                </ul>
+            </div>
+
+            <!-- Company Code -->
+            <div class="form-group">
+            <label for="code">Code</label>
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="companyFormData._id"
+            name="code"
+            #_id="ngModel"
+            required>
+            </div>
+            <div *ngIf="_id.invalid && (_id.dirty || _id.touched)"
+                class="alert alert-danger">
+                <div *ngIf="_id.errors.required">
+                Code is required
+                </div>
+            </div>
+
+            <!-- Company Name -->
+            <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="companyFormData.name"
+            name="name"
+            #name="ngModel"
+            required>
+            </div>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                Name is required
+                </div>
+            </div>
+
+            <!-- Add Company -->
+            <button (click)="add()"
+            class="btn btn-warning"
+            type="submit"
+            [disabled] = "!companyForm.form.valid">Add Company</button>
+
+        </form>
+    </div>
+    </div>
+    
+    <div class="row pt-3">
+        <div class="col-md-5 center-justified">
+            <button class="btn btn-warning" [routerLink]="['/companies-list']">Go Back</button>
+        </div>
+    </div>
+
+</div>

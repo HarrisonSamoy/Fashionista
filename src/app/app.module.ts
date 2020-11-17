@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { AuthModule } from './auth/auth.module';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
+import { AddCompanyComponent } from './add-company/add-company.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,15 @@ import { CompaniesListComponent } from './companies-list/companies-list.componen
     HeaderComponent,
     HomeComponent,
     ProfileComponent,
-    CompaniesListComponent
+    CompaniesListComponent,
+    AddCompanyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

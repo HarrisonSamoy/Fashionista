@@ -11,7 +11,15 @@
             <tr *ngFor="let company of companies;let rowIndex=index">
                 <td>{{rowIndex+1}}</td>
                 <td>{{company.name}}</td>
+                <td><button>Add Product</button></td>
+                <td><button>Update</button></td>
+                <td><button>Delete</button></td>
             </tr>
         </tbody>
     </table>
+
+    <div>
+        <button [routerLink]="['/add-company']">Add Company</button>
+    </div>
+    
 </div>

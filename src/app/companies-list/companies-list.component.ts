@@ -21,7 +21,7 @@ export class CompaniesListComponent implements OnInit {
     });
   }
 
-  delete(code): void {
+  delete(code:String): void {
     if(confirm("delete?")) {
       this.companyService.deleteCompanyById(code).subscribe( (data) => {
         console.log(data);
@@ -31,10 +31,10 @@ export class CompaniesListComponent implements OnInit {
   }
 
   addProduct(): void {
-    alert("addProduct");
+    this.router.navigate(['add-product']);
   }
 
-  update(code): void {
+  update(code:String): void {
     this.router.navigate(['update-company/',code]);
   }
 }

@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UpdateCompanyComponent } from './update-company/update-company.componen
     ProfileComponent,
     CompaniesListComponent,
     AddCompanyComponent,
-    UpdateCompanyComponent
+    UpdateCompanyComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

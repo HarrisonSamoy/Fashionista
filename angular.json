@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularjwtauth"
+    }
+  },
+  "defaultProject": "angularjwtauth",
+  "cli": {
+    "analytics": "3da39cb8-82ba-455e-bce3-f497b00a3867"
+  }
 }

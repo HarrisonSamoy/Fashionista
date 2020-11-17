@@ -23,7 +23,6 @@ export class AddCompanyComponent implements OnInit {
     }, (errorResponse) => {
       this.errors.push(errorResponse.error.error);
     });
-    console.log(this.errors);
   }
 
 }

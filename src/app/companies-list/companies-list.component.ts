@@ -20,4 +20,21 @@ export class CompaniesListComponent implements OnInit {
       console.log(this.companies); 
     });
   }
+
+  delete(code): void {
+    if(confirm("delete?")) {
+      this.companyService.deleteCompanyById(code).subscribe( (data) => {
+        console.log(data);
+      })
+    }
+    location.reload();
+  }
+
+  addProduct(): void {
+    alert("addProduct");
+  }
+
+  update(code): void {
+    this.router.navigate(['update-company/',code]);
+  }
 }

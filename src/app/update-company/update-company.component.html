@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
     <div class="col-md-5">
-        <h1 class="page-title">Add Company Form</h1>
-        <form #companyForm="ngForm">
+        <h1 class="page-title">Update Company Form</h1>
+        <form #companyForm="ngForm" *ngIf="done">
 
             <div *ngIf="errors.length > 0" class="alert alert-danger">
                 <ul *ngFor = "let error of errors">
@@ -14,6 +14,7 @@
             <div class="form-group">
             <label for="code">Code</label>
             <input type="text"
+            placeholder={{companyDetails._id}}
             class="form-control"
             [(ngModel)]="companyFormData._id"
             name="code"
@@ -31,6 +32,7 @@
             <div class="form-group">
             <label for="name">Name</label>
             <input type="text"
+            placeholder={{companyDetails.name}}
             class="form-control"
             [(ngModel)]="companyFormData.name"
             name="name"
@@ -45,10 +47,10 @@
             </div>
 
             <!-- Add Company -->
-            <button (click)="add()"
+            <button (click)="update()"
             class="btn btn-warning"
             type="submit"
-            [disabled] = "!companyForm.form.valid">Add Company</button>
+            [disabled] = "!companyForm.form.valid">Update Company</button>
 
         </form>
     </div>

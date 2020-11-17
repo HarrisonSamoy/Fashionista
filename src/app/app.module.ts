@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthModule } from './auth/auth.module';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
+import { UpdateCompanyComponent } from './update-company/update-company.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddCompanyComponent } from './add-company/add-company.component';
     HomeComponent,
     ProfileComponent,
     CompaniesListComponent,
-    AddCompanyComponent
+    AddCompanyComponent,
+    UpdateCompanyComponent
   ],
   imports: [
     BrowserModule,

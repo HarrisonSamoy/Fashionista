@@ -1,0 +1,23 @@
+<div class="container">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Product Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products;let rowIndex=index">
+                <td>{{rowIndex + 1}}</td>
+                <td>{{product.name}}</td>
+                <td><img src=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button [routerLink]="['/companies-list']">Go Back</button>
+    </div>
+    
+</div>

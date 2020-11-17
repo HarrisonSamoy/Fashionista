@@ -1,1 +1,110 @@
-<p>add-product works!</p>
+<div class="container">
+    <div class="row">
+    <div class="col-md-5">
+        <h1 class="page-title">Add Product Form</h1>
+        <form #productForm="ngForm">
+
+            <div *ngIf="errors.length > 0" class="alert alert-danger">
+                <ul *ngFor = "let error of errors">
+                    <li>{{ error }}</li>
+                </ul>
+            </div>
+
+            <!-- Product Name -->
+            <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="productFormData.name"
+            name="name"
+            #name="ngModel"
+            required>
+            </div>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                Product name is required
+                </div>
+            </div>
+
+            <!-- Product Price -->
+            <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="productFormData.price"
+            name="price"
+            #price="ngModel"
+            required>
+            </div>
+            <div *ngIf="price.invalid && (price.dirty || price.touched)"
+            class="alert alert-danger">
+                <div *ngIf="price.errors.required">
+                Price is required
+                </div>
+            </div>
+
+            <!-- Product Price -->
+            <div class="form-group">
+            <label for="price">Quantity</label>
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="productFormData.amount"
+            name="amount"
+            #amount="ngModel"
+            required>
+            </div>
+            <div *ngIf="amount.invalid && (amount.dirty || amount.touched)"
+            class="alert alert-danger">
+                <div *ngIf="amount.errors.required">
+                Quantity is required
+                </div>
+            </div>
+
+            <!-- Product Image -->
+            <div class="form-group">
+                <label for="name">Image URL</label>
+                <input type="text"
+                class="form-control"
+                [(ngModel)]="productFormData.image"
+                name="image"
+                #image="ngModel"
+                required>
+                </div>
+                <div *ngIf="image.invalid && (image.dirty || image.touched)"
+                class="alert alert-danger">
+                    <div *ngIf="image.errors.required">
+                    Image URL is required
+                    </div>
+                </div>
+
+            <!-- Product Details -->
+            <div class="form-group">
+                <label for="details">Product Details</label>
+                <textarea
+                cols=40
+                rows=5
+                class="form-control"
+                [(ngModel)]="productFormData.details"
+                name="details"
+                #details="ngModel">
+                </textarea>
+            </div>
+
+            <!-- Add Product -->
+            <button (click)="add()"
+            class="btn btn-warning"
+            type="submit"
+            [disabled] = "!productForm.form.valid">Add Product</button>
+
+        </form>
+    </div>
+    </div>
+    
+    <div class="row pt-3">
+        <div class="col-md-5 center-justified">
+            <button class="btn btn-warning" [routerLink]="['/companies-list']">Go Back</button>
+        </div>
+    </div>
+
+</div>

@@ -30,11 +30,15 @@ export class CompaniesListComponent implements OnInit {
     location.reload();
   }
 
-  addProduct(): void {
-    this.router.navigate(['add-product']);
+  addProduct(code:String): void {
+    this.router.navigate(['add-product/',code]);
   }
 
   update(code:String): void {
     this.router.navigate(['update-company/',code]);
+  }
+
+  showProducts(code:String): void {
+    this.router.navigate(['products-list/',code]);
   }
 }

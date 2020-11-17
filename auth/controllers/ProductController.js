@@ -15,7 +15,7 @@ exports.findAll = (req, res) => {
 exports.addProduct = (req, res) => {
     Product.create(req.body, (err,data) => {
         if(err) {
-            res.json({"msg":"There has been an error (ADD_PRODUCT)"});
+            return res.status(422).json({"error":"Oops! Something went wrong"});
         }
         else {
             res.send(data);

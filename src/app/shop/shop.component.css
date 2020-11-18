@@ -47,3 +47,7 @@ img {
 .title {
     padding-top: 5px;
 }
+
+.msg {
+    background-color: rgb(254, 255, 189);
+}

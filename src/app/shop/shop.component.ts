@@ -14,8 +14,12 @@ export class ShopComponent implements OnInit {
 
   products: Product[];
   companys: Company[];
+
   cart: Cart;
   searchFormData: any = {};
+
+  textPresent: boolean = false;
+  msg: string;
 
   constructor(private productService: ProductService, private companyService: CompanyService) { }
 
@@ -37,9 +41,9 @@ export class ShopComponent implements OnInit {
 
   addToCart(code: string, product: Product): void {
     this.cart.addItem(code, product);
-    console.log("ADDED")
-    console.log(this.cart);
     localStorage.setItem("cart", JSON.stringify(this.cart));
+    this.msg = "An order of " + product.name + " has been added to your Cart.";
+    this.textPresent = true;
   }
 
   search(): void {
@@ -53,7 +57,6 @@ export class ShopComponent implements OnInit {
         this.products = products;
       });
     }
-    //location.reload();
   }
 
 }

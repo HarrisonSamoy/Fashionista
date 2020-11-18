@@ -4,6 +4,13 @@
             <h1> Welcome </h1>
         </div>
     </div>
+    <div *ngIf="textPresent">
+        <div class="row">
+            <div class="col-md-12 alert msg text-center">
+                <p>{{msg}}</p>
+            </div>
+        </div>
+    </div>
     <div class="row border-top">
         <div class="col-md-2 border-right border-bottom search-col">
             <h5 class="title">Search By:</h5>

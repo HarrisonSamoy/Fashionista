@@ -22,8 +22,4 @@ export class CartComponent implements OnInit {
     }
   }
 
-  ngOnDestroy(): void {
-    localStorage.setItem('cart', JSON.stringify(this.cart));
-  }
-
 }

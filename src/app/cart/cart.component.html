@@ -4,10 +4,17 @@
             <h1> Your Cart </h1>
         </div>
     </div>
+    <div *ngIf="textPresent">
+        <div class="row">
+            <div class="col-md-12 alert msg text-center">
+                <p>{{msg}}</p>
+            </div>
+        </div>
+    </div>
     <div class="row border-top">
         <div class="col-md-2 border-right border-bottom total-col text-center">
             <h5 class="title">Total: ${{cart.total}}</h5>
-            <button class="btn btn-outline-success">Confirm Purchase</button>
+            <button class="btn btn-outline-success" (click)="confirm()">Confirm Purchase</button>
         </div>
         <div class="col-md-10 text-center">
             <table class="table table-striped">
@@ -25,15 +32,16 @@
                         <td><img src="{{item.image}}"></td>
                         <td>{{item.name}}</td>
                         <td>${{item.unitPrice}}</td>
-                        <td>{{item.quantity}}</td>
+                        <td>
+                            <button class="btn btn-outline-danger" (click)="down(item.product_id)">-</button>
+                            <span class="quantity">{{item.quantity}}</span>
+                            <button class="btn btn-outline-success" (click)="up(item.product_id)">+</button>
+                        </td>
                         <td>${{item.totalPrice}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
     </div>
-
-
 </div>
 

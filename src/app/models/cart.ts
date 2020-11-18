@@ -17,7 +17,7 @@ export class Cart {
         for (var i=0; i < jsonObj['items'].length; i++) {
             this.items.push(jsonObj['items'][i]);
         }
-        this.setTotal();
+        this.resetTotal();
     }
 
     public addItem(code:string, product:Product) {
@@ -33,18 +33,36 @@ export class Cart {
         if (!added) {
             this.items.push(new CartItem(code, product.name, product.price, product.image));
         }
-        this.setTotal();
+        this.resetTotal();
     }
-    public removeItem() {
-
+    public removeItem(index:number) {
+        this.items.splice(index, 1)
     }
-    public increaseQuantity() {
-
+    public increaseQuantity(code:string) {
+        this.items.forEach( (element) => {
+            if(element.product_id == code) {
+              element.quantity++;
+              element.totalPrice = element.totalPrice + element.unitPrice;
+            }
+        });
+        this.resetTotal();
     }
-    public decreaseQuantity() {
-
+    public decreaseQuantity(code:string) {
+        this.items.forEach( (element, index) => {
+            if(element.product_id == code) {
+              element.quantity--;
+              if (element.quantity == 0) {
+                this.removeItem(index);
+              }
+              else {
+                element.totalPrice = element.totalPrice - element.unitPrice; 
+              }
+            }
+        });
+        this.resetTotal();
     }
-    public setTotal() {
+    public resetTotal() {
+        this.total = 0;
         this.items.forEach( (element) => {
             this.total = this.total + element.totalPrice;
         })

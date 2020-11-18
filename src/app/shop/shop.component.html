@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row justify-content-md-center d-flex">
+        <div class="col-md-12 dark text-center">
+            <h1> Welcome </h1>
+        </div>
+    </div>
+    <div class="row border-top">
+        <div class="col-md-2 text-center border-right border-bottom search-col">
+            <h5 class="title">Search By:</h5>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <ng-container *ngFor="let product of products; let i=index">
+                    <div class="col-auto m-3">
+                        <p class="text-center company-name">{{product.company_id}}</p>
+                        <div class="item">
+                            <p class="text-center product-name">{{product.name}}</p>
+                            <img class="mx-auto d-block p-1 product-image" src="{{product.image}}"/>
+                            <p class="text-center info">
+                                <span>Price: ${{product.price}} | </span>
+                                <span>Quantity: {{product.amount}}</span>
+                            </p>
+                            <p class="details">{{product.details}}</p>
+                            <button class="btn btn-success btn-block" (click)="addToCart(product._id)">Add To Cart</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

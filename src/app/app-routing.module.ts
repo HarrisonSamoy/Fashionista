@@ -12,6 +12,8 @@ import { UpdateCompanyComponent } from './update-company/update-company.componen
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { ShopComponent } from './shop/shop.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'update-company/:id', component:UpdateCompanyComponent, canActivate: [AuthGuard]},
   { path: 'add-product/:code', component:AddProductComponent, canActivate: [AuthGuard]},
   { path: 'products-list/:code', component:ProductsListComponent, canActivate: [AuthGuard] },
-  { path: 'update-product/:id', component:UpdateProductComponent, canActivate: [AuthGuard]}
+  { path: 'update-product/:id', component:UpdateProductComponent, canActivate: [AuthGuard]},
+  { path: 'shop', component:ShopComponent, canActivate: [AuthGuard]},
+  { path: 'cart', component:CartComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

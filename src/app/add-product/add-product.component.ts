@@ -24,7 +24,7 @@ export class AddProductComponent implements OnInit {
   add() {
     this.productFormData.company_id = this.companyCode;
     this.productService.addProduct(this.productFormData).subscribe( () => {
-      this.router.navigate(['companies-list']) //change to get products for company
+      this.router.navigate(['products-list/', this.companyCode]) //change to get products for company
     }, (errorResponse) => {
       this.errors.push(errorResponse.error.error);
     });

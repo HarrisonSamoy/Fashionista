@@ -1,1 +1,6 @@
-<p>cart works!</p>
+<div *ngFor="let item of cart.items">
+    <p>{{item.name}}:{{item.quantity}}</p>
+    <hr/>
+</div>
+<p>Total: {{cart.total}}</p>
+

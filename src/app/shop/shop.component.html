@@ -23,6 +23,7 @@
             <!-- Search Button -->
             <button class="btn btn-outline-dark btn-block" (click)="search()">Search</button>
         </div>
+
         <div class="col-md-10">
             <div class="row">
                 <ng-container *ngFor="let product of products; let i=index">
@@ -32,11 +33,11 @@
                             <p class="text-center product-name">{{product.name}}</p>
                             <img class="mx-auto d-block p-1 product-image" src="{{product.image}}"/>
                             <p class="text-center info">
-                                <span>Price: ${{product.price}} | </span>
-                                <span>Quantity: {{product.amount}}</span>
+                                <span>Price: ${{product.price}}</span>
+                                <!-- <span>Quantity: {{product.amount}}</span> -->
                             </p>
                             <p class="details">{{product.details}}</p>
-                            <button class="btn btn-success btn-block" (click)="addToCart(product._id)">Add To Cart</button>
+                            <button class="btn btn-success btn-block" (click)="addToCart(product._id, product)">Add To Cart</button>
                         </div>
                     </div>
                 </ng-container>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../models/company';
 import { Product } from '../models/product';
+import { Cart } from '../models/cart';
 import { CompanyService } from '../service/company.service';
 import { ProductService } from '../service/product.service';
 
@@ -13,6 +14,7 @@ export class ShopComponent implements OnInit {
 
   products: Product[];
   companys: Company[];
+  cart: Cart;
   searchFormData: any = {};
 
   constructor(private productService: ProductService, private companyService: CompanyService) { }
@@ -24,10 +26,20 @@ export class ShopComponent implements OnInit {
     this.companyService.getCompanies().subscribe( companys => {
       this.companys=companys;
     })
+    this.cart = new Cart();
+    if (localStorage.getItem('cart') != undefined) {
+      this.cart.fillCart(localStorage.getItem('cart'));
+    }
+    else {
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+    }
   }
 
-  addToCart(code: String): void {
-    alert(code);
+  addToCart(code: string, product: Product): void {
+    this.cart.addItem(code, product);
+    console.log("ADDED")
+    console.log(this.cart);
+    localStorage.setItem("cart", JSON.stringify(this.cart));
   }
 
   search(): void {

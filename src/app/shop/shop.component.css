@@ -43,3 +43,7 @@ img {
     background-color: rgb(19, 18, 63);
     color: white;
 }
+
+.title {
+    padding-top: 5px;
+}

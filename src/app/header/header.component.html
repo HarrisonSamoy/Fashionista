@@ -1,6 +1,11 @@
 <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
   <div class="container">
-    <a routerLink="/" class="navbar-brand" routerLinkActive="active">Admin Portal</a>
+    <ng-container *ngIf="auth.isAdmin()">
+      <a routerLink="/" class="navbar-brand" routerLinkActive="active">Admin Portal</a>
+    </ng-container>
+    <ng-container *ngIf="!auth.isAdmin()">
+      <a routerLink="/" class="navbar-brand" routerLinkActive="active">Customer Portal</a>
+    </ng-container>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <ng-container *ngIf="!auth.isAuthenticated()">

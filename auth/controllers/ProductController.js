@@ -19,6 +19,13 @@ exports.findById = (req, res) => {
     });
 };
 
+exports.findByCompanyId = (req, res) => {
+    Product.find({company_id: req.params.id}, (err, products) => {
+        if (err) throw err;
+        res.send(products);
+    });
+};
+
 exports.addProduct = (req, res) => {
     Product.create(req.body, (err,data) => {
         if(err) {

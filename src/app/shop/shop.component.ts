@@ -31,8 +31,17 @@ export class ShopComponent implements OnInit {
   }
 
   search(): void {
-    console.log(this.searchFormData);
-    location.reload();
+    if (this.searchFormData.company != undefined && this.searchFormData.company != "all" ) {
+      this.productService.getProductByCompanyId(this.searchFormData.company).subscribe( products => {
+        this.products = products;
+      }) 
+    }
+    else {
+      this.productService.getProducts().subscribe( products => {
+        this.products = products;
+      });
+    }
+    //location.reload();
   }
 
 }

@@ -5,13 +5,19 @@
             <tr>
                 <th>S.No.</th>
                 <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let product of products;let rowIndex=index">
                 <td>{{rowIndex + 1}}</td>
                 <td>{{product.name}}</td>
-                <td><img src=""></td>
+                <td>{{product.price}}</td>
+                <td>{{product.amount}}</td>
+                <td><img src="{{product.image}}"></td>
+                <td><button (click)="update(product._id)">Update</button></td>
+                <td><button (click)="delete(product._id)">Delete</button></td>
             </tr>
         </tbody>
     </table>

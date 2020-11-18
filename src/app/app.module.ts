@@ -15,6 +15,7 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
     AddCompanyComponent,
     UpdateCompanyComponent,
     AddProductComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,

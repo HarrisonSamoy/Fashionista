@@ -12,6 +12,13 @@ exports.findAll = (req, res) => {
     })
 }
 
+exports.findById = (req, res) => {
+    Product.findById(req.params.id, (err, product) => {
+        if (err) throw err;
+        res.send(product);
+    });
+};
+
 exports.addProduct = (req, res) => {
     Product.create(req.body, (err,data) => {
         if(err) {

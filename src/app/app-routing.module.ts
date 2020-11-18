@@ -11,6 +11,7 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'add-company', component:AddCompanyComponent, canActivate: [AuthGuard]},
   { path: 'update-company/:id', component:UpdateCompanyComponent, canActivate: [AuthGuard]},
   { path: 'add-product/:code', component:AddProductComponent, canActivate: [AuthGuard]},
-  { path: 'products-list/:code', component:ProductsListComponent, canActivate: [AuthGuard] }
+  { path: 'products-list/:code', component:ProductsListComponent, canActivate: [AuthGuard] },
+  { path: 'update-product/:id', component:UpdateProductComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,6 +17,7 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent,
     children: [
+      { path: '', component: LoginComponent, canActivate: [AuthGuard]},
       { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
       { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] }
     ]

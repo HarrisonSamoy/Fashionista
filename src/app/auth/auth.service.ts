@@ -57,4 +57,13 @@ export class AuthService {
   public getUsername(): string {
     return this.decodedToken.username;
   }
+
+  public isAdmin(): boolean {
+    if (this.decodedToken.admin)  {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

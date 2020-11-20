@@ -1,0 +1,25 @@
+Author: Harrison Samoy
+Date: 11/18/2020
+Title: Simplilearn Capstone Project - Fashionista
+
+This project was a great experience in getting used to MEAN stack development. I could feel my comfortablitiy
+with the softwares grow the longer I worked on the project. Fashionista is a prototype of an e-commerce website
+where users shop for retail goods. The site is also managed by an admin (username: system@admin.com, password: admin).
+The admin manages all companies and products that appear in the store. If I could do something differently I would
+change the heirarchy of users to include a "super admin" who would run the site, a "company admin" who would be in
+charge of specific companies and their products, and "users" who would buy products from the companies.
+
+
+***IMPORTANT INFORMATION***
+I did not add a feature to add an admin and as such you will not be able to login as one. If you want to add an admin you would have to do it manually by
+adding a user to the user database that is created by mongoose. The json syntax will be... 
+
+{
+  username: *anything*
+  email: *anything*
+  password: *anything*
+  passwordConfirmation: *must match password*
+  admin: 1
+}
+
+Sorry about this manual addition...
